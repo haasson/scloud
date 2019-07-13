@@ -78,7 +78,7 @@ function svg() {
 }
 
 function video() {
-   return gulp.src('src/video/*')
+   return gulp.src('./src/video/*')
               .pipe(gulp.dest('build/video'))
               .pipe(gulpif(!isSync, browserSync.stream()));
 }

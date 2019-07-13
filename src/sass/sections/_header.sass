@@ -103,6 +103,50 @@
    &__searchblock
       display: none
 
+   &__center
+      padding-top: 50px
+      background: #f4eadd
+   &__content
+      display: flex
+   
+   &__left-side
+      width: 50%
+   &__list
+      margin: 20px 0
+      font-size: 24px
+   &__item
+      position: relative
+      display: block
+      margin-bottom: 30px
+      padding-left: 50px
+      &:last-child
+         margin: 0
+      &:before
+         +pseudo
+         content: url('../img/header/check.png')
+         left: 10px
+   &__try-btn
+      width: 85%
+      margin: 50px 0
+
+
+.video
+   display: flex
+   margin: auto
+   width: 50%
+   &__wrapper
+      position: relative
+      height: 100%
+   &__content
+      position: absolute
+      left: 14.3%
+      bottom: 15.5%
+      display: block
+      max-width: 100%
+      width: 72.5%
+
+
+
 .nav
    display: flex
    &__link
@@ -156,11 +200,38 @@
 
 /*======================== MEDIA QUERIES ===============================*/
 
+@media (max-width: 1200px)
+   .header
+      &__content
+         flex-direction: column
+         align-items: center
+      &__left-side
+         width: 70%
+      &__item
+         padding-left: 160px
+         padding-right: 80px
+         &:before
+            left: 130px
+      &__try-btn
+         width: 100%
+         text-align: center
+
+   .video
+      display: flex
+      justify-content: center
+      width: 100%
+
+
 @media (max-width: 992px)
    .header
       &__bottomline
          flex-wrap: wrap
          justify-content: flex-end
+
+      &__left-side
+         width: 100%
+      
+
 
    .nav
       justify-content: center
@@ -175,6 +246,7 @@
    .dropdown
       display: flex
       justify-content: center
+
 
 @media (max-width: 768px)
    .header
@@ -200,6 +272,14 @@
          display: none
       &__mobile-menu
          display: block
+      
+      &__item
+         padding: 0
+         padding-left: 100px
+         &:before
+            left: 70px
+
+
    .mobile-menu    
       margin-left: 10px
       order: 10
@@ -278,6 +358,18 @@
          order: 1
          margin: 0 auto
          text-align: center
+
+      &__item
+         padding-left: 40px
+         &:before
+            left: 10px
+
+   .video
+      img
+         opacity: 0
+      &__content
+         width: 100%
+         left: 0
 
 @media (max-width: 420px)
    .header
