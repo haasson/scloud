@@ -1,0 +1,110 @@
+.why
+   text-align: center
+   &__subtitle
+      font-size: 30px
+
+   &__list
+      +row-flex()
+      justify-content: space-around
+      align-items: center
+      margin-top: 40px
+
+   &__text-block
+      display: none
+      text-align: left
+      margin-top: 35px
+      padding-left: 60px
+
+   &__item
+      +col()
+      +size(3.5)
+
+      padding: 20px
+      box-shadow: -1px 3px 7px rgba(0, 0, 0, 0.16)
+      border-radius: 10px
+      background-color: #ffffff
+      cursor: pointer
+
+      &_active
+         +size(5)
+         box-shadow: -1px 3px 21px rgba(0, 0, 0, 0.16)
+         border-radius: 20px
+         cursor: default
+         .why__img
+            transform-origin: top
+            transform: scale(1.2)
+         .why__text-block
+            display: block
+         .why__title
+            position: relative
+            margin: 25px 0
+            font-size: 24px
+            &:before
+               +pseudo
+               width: 96px
+               height: 4px
+               left: 50%
+               bottom: -50%
+               transform: translate(-50%)
+               background-color: #6a6f6b
+
+
+   &__title
+      display: block
+      margin: 25px 0
+      font-size: 20px
+      
+      
+   &__text
+      position: relative
+      &:before
+         +pseudo
+         width: 9px
+         height: 9px
+         left: -8%
+         top: 5px
+         background-color: $green 
+         border-radius: 50%
+
+
+/*======================== MEDIA QUERIES ===============================*/
+
+@media (max-width: 1200px)
+   .why
+      &__title
+         margin: 25px 30px
+
+@media (max-width: 992px)
+   .why
+      &__subtitle
+         font-size: 24px
+      &__item
+         +size(7)
+         margin-bottom: 20px
+
+@media (max-width: 768px)
+   .why
+      &__subtitle
+         font-size: 22px
+      &__item
+         +size(9)
+
+@media (max-width: 576px)
+   .why
+      &__subtitle
+         font-size: 20px
+      &__item
+         padding-top: 10px
+      &__text-block
+         padding-left: 30px
+      &__img
+         transform: scale(0.7)
+      &__title
+         margin: 0 30px
+
+@media (max-width: 480px)
+   .why
+      &__subtitle
+         font-size: 18px
+      &__item
+         +size(12)

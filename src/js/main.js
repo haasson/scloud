@@ -65,3 +65,17 @@ searchBtn.forEach(function (item, i) {
       searchDropdown[i].style.display = 'block';
    })
 })
+
+// WHY
+
+let whyItem = document.querySelectorAll('.why__item');
+
+whyItem.forEach(function (item, i) {
+   item.addEventListener('click', function () {
+      if (!this.classList.contains('why__item_active')) {
+         document.querySelector('.why__item_active').classList.remove('why__item_active');
+         this.classList.add('why__item_active');
+      }
+   })
+   
+})
