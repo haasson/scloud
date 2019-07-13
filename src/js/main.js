@@ -1,0 +1,67 @@
+// HEADER
+
+// Выпадающее меню desktop
+let menuLink = document.querySelector('.nav__link_select');
+let dropdown = document.querySelector('.dropdown');
+
+menuLink.addEventListener('click', function (e) {
+   e.preventDefault();
+   dropdown.classList.toggle('dropdown-active');
+})
+
+// Выпадающее меню mobile
+let menuMobileLink = document.querySelector('.mobile-menu__btn');
+let dropdownMobile = document.querySelector('.mobile-menu__dropdown');
+
+menuMobileLink.addEventListener('click', function (e) {
+   e.preventDefault();
+   dropdownMobile.classList.toggle('mobile-menu__dropdown-active');
+   menuMobileLink.classList.toggle('mobile-menu__btn-active');
+})
+
+// Кнопка смены языка
+let languageBtn = document.querySelectorAll('.header__language');
+let languageChange = document.querySelectorAll('.header__language-dropdown');
+
+languageBtn.forEach(function (item, i) {
+   item.addEventListener('click', function (e) {
+      e.preventDefault();
+      languageChange[i].classList.toggle('header__language-dropdown-active')
+   })
+})
+
+languageChange.forEach(function (item, i) {
+   item.addEventListener('click', function () {
+      let a = languageBtn[i].innerText;
+      languageBtn[i].innerText = languageChange[i].innerText
+      languageChange[i].innerText = a;
+      languageChange[i].classList.toggle('header__language-dropdown-active')
+   })
+})
+
+document.addEventListener('click', function (e) {
+   if (!e.target.classList.contains('header__language') && !e.target.classList.contains('header__language-dropdown')) {
+      languageChange.forEach(function (item) {
+         item.classList.remove('header__language-dropdown-active')
+      })
+   }
+   if (!e.target.classList.contains('header__search-input')) {
+      searchDropdown.forEach(function (item) {
+         item.style.display = ''
+      })
+   }
+
+})
+
+// Кнопка поиска
+let searchBtn = document.querySelectorAll('.header__search-desktop');
+let searchDropdown = document.querySelectorAll('.header__search-dropdown');
+
+searchBtn.forEach(function (item, i) {
+   item.addEventListener('click', function (e) {
+      e.stopPropagation();
+      console.log(searchDropdown);
+      
+      searchDropdown[i].style.display = 'block';
+   })
+})

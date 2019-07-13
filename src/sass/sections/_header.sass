@@ -1,0 +1,294 @@
+.header
+   &__top
+      position: relative
+      padding: 10px 0
+   &__topline
+      display: flex
+      align-items: center
+   &__phone
+      margin-left: auto
+      margin-right: 20px
+      font-size: 20px
+      font-weight: 700
+   &__account
+      margin-right: 10px
+      vertical-align: middle
+   &__1c
+      background-color: $accent
+      color: #fff
+      &:hover
+         background-color: darken($accent, 4%)
+      &:active
+         background-color: darken($accent, 7%)
+
+   &__bottomline
+      display: flex
+      align-items: center  
+      padding-top: 10px
+
+   &__nav
+      flex-grow: 1    
+      margin-right: 15px
+   &__write, &__support
+      display: flex
+      align-items: center
+      margin-right: 30px
+      font-size: 15px
+      .icon
+         margin-right: 8px
+   &__support
+      margin-right: 17px
+   &__search
+      display: flex
+      align-items: center
+      margin-right: 9px
+      padding: 0 5px
+      height: 27px
+      text-align: right
+      &-block
+         position: relative
+      &-dropdown
+         display: none
+         position: absolute
+         z-index: 10
+         left: 0
+         padding: 2px
+         transform: translateX(-50%)
+         width: 150px
+         height: 23px
+         background-color: #ccc
+         &_mobile
+            bottom: -5px
+            transform: translate(0, 100%)
+            
+      &-input
+         box-sizing: border-box
+         padding: 0 5px
+         width: 100%
+         border: none
+         height: 100%
+         font-size: 14px
+         color: $dark
+      .icon
+         color: #808080
+   &__language
+      position: relative
+      padding: 5px 7px
+      padding-right: 20px
+      height: 27px
+      &:after
+         +pseudo
+         right: 10%
+         top: 45%
+         border-style: solid
+         border-width: 6px 4.5px 0 4.5px
+         border-color: $dark transparent transparent transparent
+      &-select
+         position: relative
+      &-dropdown
+         position: absolute
+         z-index: 10
+         box-sizing: border-box
+         width: 100%
+         height: 100%
+         padding: 5px 7px
+         background-color: #f3f3f3
+         transition: background-color .2s
+         cursor: pointer
+         transform: scale(0)
+         &-active
+            transform: scale(1)
+         &:hover
+            background-color: darken(#f3f3f3, 4%)
+   &__searchblock
+      display: none
+
+.nav
+   display: flex
+   &__link
+      display: block
+      margin-right: 30px
+      font-size: 18px
+      &:last-child
+         margin-right: 0px
+      &_select
+         position: relative
+         margin-right: 48px
+         &:after
+            +pseudo
+            right: -15%
+            top: 50%
+            transform: translateY(-25%)
+            border-style: solid
+            border-width: 6px 4.5px 0 4.5px
+            border-color: $dark transparent transparent transparent
+
+.dropdown
+   position: absolute
+   bottom: 0
+   left: 0
+   width: 100%
+   padding: 10px 0
+   background-color: #eee
+   transform-origin: top
+   transform: translateY(100%) scaleY(0)
+   transition: transform .2s
+   &__link
+      margin-right: 40px
+      &:last-child
+         margin-right: 0px
+   &-active
+      transform: translateY(100%) scaleY(1)
+
+.mobile-menu
+   display: none
+
+.icon-sign-in, .icon-download, .icon-headset, .icon-search, .icon-envelope-o
+   font-size: 16px 
+   color: $accent
+
+.icon-sign-in
+   margin-right: 8px
+
+.icon-download
+   margin-right: 14px
+   color: #fff
+
+/*======================== MEDIA QUERIES ===============================*/
+
+@media (max-width: 992px)
+   .header
+      &__bottomline
+         flex-wrap: wrap
+         justify-content: flex-end
+
+   .nav
+      justify-content: center
+      order: 5
+      width: 100%
+      margin-top: 15px
+      &__link
+         margin-right: 50px
+         &:last-child
+            margin-right: 0px
+
+   .dropdown
+      display: flex
+      justify-content: center
+
+@media (max-width: 768px)
+   .header
+      &__topline
+         flex-wrap: wrap
+         justify-content: flex-end
+      &__phone
+         margin-left: auto
+         flex-basis: 60%
+         text-align: right
+         order: 5
+      &__account
+         order: 100
+      &__1c
+         order: 100
+      &__searchblock
+         display: flex
+         order: 30
+         flex-basis: 30%
+         margin-right: auto         
+
+      &__bottomline
+         display: none
+      &__mobile-menu
+         display: block
+   .mobile-menu    
+      margin-left: 10px
+      order: 10
+      &__btn
+         position: relative
+         display: block
+         padding: 0
+         width: 48px
+         height: 38px 
+         background-color: transparent
+         border-radius: 6px
+         span
+            position: absolute
+            width: 60%
+            height: 2px
+            left: 50%
+            top: 50%
+            background-color: $accent
+            transform: translate(-50%, -50%)
+            &:before, &:after
+               +pseudo
+               width: 100%
+               height: 2px
+               left: 0
+               background-color: $accent
+               transition:  .2s
+            &:before
+               top: 9px
+            &:after
+               bottom: 9px
+      &__btn-active
+         span
+            height: 0
+            &:before
+               top: -1px
+               transform: rotate(45deg)
+            &:after
+               bottom: 0
+               transform: rotate(-45deg)
+
+
+
+      &__dropdown
+         position: absolute
+         width: 100%
+         background-color: #f3f3f3
+         right: 0
+         bottom: 0
+         transform-origin: top
+         transform: translateY(100%) scaleY(0)
+         transition: transform .2s
+         text-align: center
+         &-active
+            transform: translateY(100%) scaleY(1)
+
+      &__link
+         display: block
+         padding: 10px 0
+         font-size: 18px
+         &:nth-of-type(even)
+            background-color: #ddd
+
+@media (max-width: 480px)
+   .header
+      &__phone
+         margin: 0
+         flex-basis: auto
+         font-size: 18px
+      &__account
+         margin: 10px auto
+      &__1c
+         margin: 10px auto
+         
+      &__searchblock
+         flex-basis: auto
+         order: 1
+         margin: 0 auto
+         text-align: center
+
+@media (max-width: 420px)
+   .header
+      &__phone
+         margin-left: auto
+      &__searchblock
+         order: 150
+      &__account
+         flex-basis: 80%
+         margin-top: 20px
+      &__1c
+         flex-basis: 80%
+         margin-bottom: 20px
+         
