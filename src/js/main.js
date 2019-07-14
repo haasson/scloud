@@ -79,3 +79,14 @@ whyItem.forEach(function (item, i) {
    })
    
 })
+
+// PRICE
+
+let priceItem = document.querySelectorAll('.price__item');
+
+priceItem.forEach(function (item) {
+   item.addEventListener('click', function () {
+      document.querySelector('.price__item_shadow').classList.remove('price__item_shadow');
+      this.classList.add('price__item_shadow')
+   })
+})

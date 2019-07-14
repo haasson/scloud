@@ -65,11 +65,8 @@ a
       background-color: darken($accent, 7%)
 
 .section-title
+   margin-bottom: 25px
    font-size: 40px
-   font-weight: 700
-
-.price-title
-   font-size: 30px
    font-weight: 700
 
 .h4
@@ -77,7 +74,8 @@ a
    font-size: 24px
    font-weight: 700
 
-
+.nowrap
+   white-space: nowrap
 
 
 
@@ -88,14 +86,12 @@ a
    .section
       padding: 40px 0
       &-title
-         margin-bottom: 30px
          font-size: 36px
 
 @media (max-width: 992px)
    .section
       padding: 30px 0
       &-title
-         margin-bottom: 25px
          font-size: 32px
 
 @media (max-width: 768px)
@@ -107,3 +103,9 @@ a
 
    .h4
       font-size: 20px
+
+@media (max-width: 576px)
+   .nowrap
+      white-space: normal
+
+

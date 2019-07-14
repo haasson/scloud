@@ -1,0 +1,192 @@
+.price
+   &__subtitle
+      text-align: center
+      font-size: 24px
+   &__list
+      display: flex
+      justify-content: space-between
+   &__item
+      position: relative
+      width: 42%
+      padding: 35px
+      padding-bottom: 25px
+      border-radius: 10px
+      background-color: #fff
+      &_shadow
+         box-shadow: 2px 3px 9px rgba(0, 0, 0, 0.17)
+      &:after
+         +pseudo
+         width: 80%
+         height: 4px
+         left: 50%
+         top: 90px 
+         transform: translate(-50%)
+      &_green
+         &:after
+            background-color: $green
+         .icon
+            color: $green
+      &_grey
+         &:after
+            background-color: #c1c1c1
+         .icon
+            color: #c1c1c1
+
+   &__title
+      font-size: 30px
+      font-weight: 700
+
+      &-block
+         display: flex
+         justify-content: space-between
+         align-items: baseline
+         margin-bottom: 50px
+      &_small
+         font-size: 20px
+         font-weight: 400
+   &__option
+      margin-bottom: 30px
+   &__try
+      margin-top: 20px
+
+.optionblock
+   display: flex
+   align-items: center
+   .icon
+      width: 30px
+   &__text
+      width: 300px
+      flex-grow: 1
+      margin-left: 20px
+      font-size: 18px
+
+.config    
+   &__title
+      margin: 20px  
+      font-size: 22px
+      font-weight: 700
+      text-align: center
+   &__list
+      display: flex
+      flex-wrap: wrap
+
+   &__item
+      width: 45%
+      padding: 10px
+      font-size: 15px
+      font-weight: 700
+      &:nth-child(4n+1), &:nth-child(4n+2)
+         background: #f8f9f6
+
+      &_wide
+         width: 100%
+         text-align: center
+         &:nth-child(n)
+            background-color: #fff
+         &:nth-child(odd)
+            background: #f8f9f6
+
+.tryblock
+   display: flex
+   align-items: center
+   width: 100%
+   box-sizing: border-box
+   padding: 10px 40px
+   border-radius: 10px
+   background-color: #fff
+
+   &__text
+      flex-grow: 1
+      margin: 0 20px
+      font-size: 22px
+      font-weight: 700
+
+   &__btn
+      flex-basis: 300px
+
+
+.icon-check-circle, .icon-globe, .icon-times-circle
+   font-size: 30px 
+
+
+/*======================== MEDIA QUERIES ===============================*/
+
+
+@media (max-width: 1200px)
+   .price
+      &__item
+         padding: 25px
+         width: 43%
+         &:after
+            top: 110px
+      &__title-block
+         flex-direction: column
+         align-items: center
+   .config
+      &__item
+         font-size: 14px
+      
+@media (max-width: 992px)
+   .price
+      &__subtitle
+         font-size: 22px
+      &__list
+         flex-direction: column
+         align-items: center
+      &__item
+         width: 70%
+         margin: 10px 0
+         // padding: 35px
+         &:after
+            top: 120px
+
+   .config
+      &__item
+         font-size: 15px
+                  
+@media (max-width: 768px)
+   .config
+      &__item
+         width: 100%
+         text-align: center
+         &:nth-child(n)
+            background-color: #fff
+         &:nth-child(odd)
+            background: #f8f9f6
+
+   .tryblock
+      flex-wrap: wrap
+      &__text
+         flex-basis: 300px
+      &__btn
+         margin: 10px auto
+
+@media (max-width: 576px)
+   .price
+      &__subtitle
+         font-size: 20px
+      &__item
+         width: 90%
+
+   .tryblock
+      padding: 15px
+      &__text
+         flex-basis: 200px
+         font-size: 20px
+
+@media (max-width: 420px)
+   .price
+      &__item
+         width: 80%
+         &:after
+            top: 90px
+      &__title
+         font-size: 23px
+
+   .tryblock
+      &__img
+         display: none
+      &__text
+         text-align: center
+         font-size: 18px
+
