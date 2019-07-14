@@ -90,3 +90,21 @@ priceItem.forEach(function (item) {
       this.classList.add('price__item_shadow')
    })
 })
+
+// HELP
+
+let helpLinks = document.querySelectorAll('.help__link-block');
+let helpContents = document.querySelectorAll('.help__content');
+
+helpLinks.forEach(function (item, i) {
+   item.addEventListener('click', function (e) {
+      e.preventDefault();
+      let activeLink = document.querySelector('.help__link-block_active');
+      activeLink.classList.remove('help__link-block_active');
+      this.classList.add('help__link-block_active');
+
+      let activeContent = document.querySelector('.help__content_active');
+      activeContent.classList.remove('help__content_active');
+      helpContents[i].classList.add('help__content_active');
+   })
+})

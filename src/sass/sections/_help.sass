@@ -1,0 +1,123 @@
+.help
+   &__block
+      display: flex
+      margin-top: 43px
+      box-shadow: 0 0 21px rgba(178, 178, 178, 0.46)
+      border-radius: 8px
+      background-color: #ffffff
+   &__list
+      flex-basis: 40%
+      background-color: #f9f9f9
+      background-image: linear-gradient(to top, rgba(215, 215, 215, 0.42) 0%, rgba(255, 255, 255, 0.42) 100%)
+      border-right: 1px solid #cbcbcb
+
+   &__link
+      display: block
+      box-sizing: border-box
+      width: 100%
+      height: 100%
+      margin-left: 20px
+      font-size: 20px
+      &:hover
+         color: $dark
+      &-block
+         position: relative
+         box-sizing: border-box
+         display: flex
+         align-items: center
+         padding: 23px 35px 23px 35px
+         cursor: pointer
+         width: 100%
+         transition: width .2s
+         &:after
+            +pseudo
+            width: 95%
+            height: 1px
+            right: 0
+            bottom: 0
+            background-color: #cbcbcb
+            opacity: 0.46
+         &:before
+            +pseudo
+            content: url('../img/help/arrow.png')
+            right: 10px
+            top: 50%
+            transform: translateY(-50%)
+            opacity: 0
+            transition: opacity .3s
+
+         &:last-child
+            &:after
+               display: none
+
+         &:hover
+            .help__link
+               font-weight: 700
+            &:before
+               opacity: 1
+
+         &_active
+            background-color: #83d57b  
+            width: 105%
+            &:before
+               opacity: 1
+   
+   &__content
+      display: none
+      padding: 50px
+      padding-bottom: 25px
+      &_active
+         display: block
+      &-block
+         flex-grow: 1
+
+   &__title
+      display: block
+      margin-bottom: 40px
+      font-size: 30px
+      font-weight: 700
+
+   &__text
+      position: relative         
+      padding-left: 40px
+      font-size: 18px
+      &:before
+         +pseudo
+         content: url('../img/help/check.png')
+         left: 5px
+
+/*======================== MEDIA QUERIES ===============================*/
+
+
+@media (max-width: 1200px)
+   .help
+      &__list
+         flex-basis: 50%
+      &__link-block
+         padding: 25px
+
+@media (max-width: 992px)
+   .help
+      &__block
+         flex-direction: column
+         margin: 0 auto
+         width: 70%
+      &__list
+         border-bottom: 1px solid #cbcbcb
+         border-right: none
+      &__link
+         &-block
+            padding: 15px 25px
+            &_active
+               width: 100%
+      &__content
+         padding: 25px
+      &__title
+         margin-bottom: 30px
+
+@media (max-width: 576px)
+   .help
+      &__block
+         width: 100%
+      &__text
+         padding-left: 28px
